@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { nanoid } from '@reduxjs/toolkit'
 import remarkGfm from 'remark-gfm'
 import { format } from 'date-fns'
@@ -14,6 +12,7 @@ import { Avatar } from '../../shared/ui/Avatar'
 import Button from '../../shared/ui/Button'
 import Flex from '../../shared/ui/Flex'
 import { Tags } from '../../shared/ui/Tags'
+import { EditPostButton } from '../../features/EditPostButton'
 
 const MAX_TAGS_DISPLAY = 4
 const MAX_TITLE_LENGTH = 24
@@ -34,7 +33,6 @@ export const RevealedPost = () => {
       slug,
       favorited,
    } = useAppSelector((state: any) => state.getAndDeletePost)
-   const navigate = useNavigate()
 
    useEffect(() => {
       window.scrollTo({ top: 50 })
@@ -42,7 +40,6 @@ export const RevealedPost = () => {
 
    const handleDelete = () => setShowModal(true)
    const handleClose = () => setShowModal(false)
-   const handleNavigate = () => navigate(`/articles/${slug}/edit`)
    const tags = () => {
       return tagList
          .slice(0, MAX_TAGS_DISPLAY)
@@ -115,9 +112,7 @@ export const RevealedPost = () => {
                   <Flex $gap="10px">
                      {username === sessionStorage.getItem('blogUsername') ? (
                         <>
-                           <Button $outlined onClick={handleNavigate}>
-                              Edit
-                           </Button>
+                           <EditPostButton slug={slug} />
                            <Button
                               onClick={handleDelete}
                               $outlined

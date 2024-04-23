@@ -11,6 +11,7 @@ import logoImg from '../../shared/assets/logo-earth-blue.svg'
 import Button from '../../shared/ui/Button'
 import Flex from '../../shared/ui/Flex'
 import { Span } from '../../shared/ui/Span'
+import { CreatePostButton } from '../../features/CreatePostButton'
 
 export const HeaderMenu = () => {
    const { isLogged } = useAppSelector((state) => state.signInForm)
@@ -62,13 +63,7 @@ export const HeaderMenu = () => {
          <Flex $gap="20px" $padding="0 20px 0 0" $align="center">
             {isLogged ? (
                <>
-                  <Button
-                     onClick={() => navigate('/new-article')}
-                     $stretched
-                     $color="lightgreen"
-                  >
-                     Create Article
-                  </Button>
+                  <CreatePostButton />
                   <Span $fz="20px">{username || cachedUsername}</Span>
                   <ProfileAvatar
                      width={'30px'}

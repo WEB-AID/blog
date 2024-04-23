@@ -1,24 +1,11 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { FC } from 'react'
 import Flex from '../../shared/ui/Flex'
-import { useAppSelector } from '../../shared/hooks'
-import { CreateAndEditForm } from '../../widgets/CreateAndEditForm'
+import { EditPostWidget } from '../../widgets/EditPostWidget'
 
-export const EditPostPage = () => {
-   const slug = useParams().id!
-   const { title, description, tagList, body }: any = useAppSelector(
-      (state) => state.getAndDeletePost
-   )
-
+export const EditPostPage: FC = () => {
    return (
       <Flex $padding="0 0 50px 0">
-         <CreateAndEditForm
-            slug={slug}
-            tags={tagList}
-            body={body}
-            description={description}
-            title={title}
-         />
+         <EditPostWidget />
       </Flex>
    )
 }

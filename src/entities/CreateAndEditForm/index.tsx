@@ -11,15 +11,12 @@ import { Form } from '../../shared/ui/Form'
 import { Input } from '../../shared/ui/Input'
 import { Span } from '../../shared/ui/Span'
 import { TextArea } from '../../shared/ui/TextArea'
-
-function convertTags(tags: string[]): { value: string }[] {
-   return tags.map((tag) => ({ value: tag }))
-}
+import { convertTagsForm } from '../../shared/helpers/convertTags'
 
 const MAX_TAGS = 5
 const MAX_TAG_LENGTH = 14
 
-export const CreateAndEditForm: FC<EditPostProps> = ({
+export const CreateAndEditPostEntity: FC<EditPostProps> = ({
    slug,
    title,
    description,
@@ -54,7 +51,7 @@ export const CreateAndEditForm: FC<EditPostProps> = ({
          setValue('title', title || '')
          setValue('description', description || '')
          setValue('text', body || '')
-         setValue('tags', tags ? convertTags(tags) : [{ value: '' }])
+         setValue('tags', tags ? convertTagsForm(tags) : [{ value: '' }])
       }
    }, [navigate, isLogged, slug, setValue, title, description, body, tags])
 
@@ -67,7 +64,7 @@ export const CreateAndEditForm: FC<EditPostProps> = ({
       }
       navigate('/')
    }
-
+//+
    const tagList = fields.map((field: Record<'id', string>, index) => {
       return (
          <Flex
@@ -109,7 +106,7 @@ export const CreateAndEditForm: FC<EditPostProps> = ({
          </Flex>
       )
    })
-
+//+
    const renderAddButton = () => {
       return (
          fields.length < MAX_TAGS && (
@@ -119,7 +116,7 @@ export const CreateAndEditForm: FC<EditPostProps> = ({
          )
       )
    }
-
+//+
    return (
       <Flex $padding="150px 0 0 0" $w="100%" $align="center" $justify="center">
          <Form $gap="20px" $w="80%" onSubmit={handleSubmit(onSubmit)}>

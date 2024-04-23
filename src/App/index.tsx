@@ -10,13 +10,14 @@ import ErrorPage from '../pages/ErrorPage'
 import { EditPostPage } from '../pages/EditPostPage'
 import { CreatePostPage } from '../pages/CreatePostPage'
 import { HeaderMenu } from '../shared/HeaderMenu'
-import { newAxios } from '../shared/api'
+import { getUser } from '../pages/EditAccountPage/model/slice'
+import { useAppDispatch } from '../shared/hooks'
 
 const App = () => {
+   const dispatch = useAppDispatch()
    useLayoutEffect(() => {
       if (Cookies.get('token')) {
-         newAxios.defaults.headers.common['Authorization'] =
-            `Bearer ${Cookies.get('token')}`
+         dispatch(getUser())
       }
    }, [])
 

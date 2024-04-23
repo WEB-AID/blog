@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { CreateAndEditForm } from '../../widgets/CreateAndEditForm'
+import { EditPostWidget } from '../../widgets/EditPostWidget'
 
 export const CreatePostPage: FC = () => {
-   return <CreateAndEditForm />
+   return <EditPostWidget />
 }

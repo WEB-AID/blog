@@ -20,7 +20,9 @@
       "no-unused-vars": "off",
       "import/no-named-as-default": 0,
       "import/no-unresolved": 0,
-      "@typescript-eslint/triple-slash-reference": "off"
+      "@typescript-eslint/triple-slash-reference": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off"
    },
    "globals": {
       "JSX": "readonly"

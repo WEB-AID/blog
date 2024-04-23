@@ -25,6 +25,7 @@ export const getUser = createAsyncThunk(
          })
          const { username, email, image } = res.data.user
          sessionStorage.setItem('blogUsername', username)
+         newAxios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
          return { username, email, image }
       } catch (error) {
          return rejectWithValue(error)

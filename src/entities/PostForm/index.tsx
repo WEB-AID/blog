@@ -2,16 +2,11 @@ import React, { FC } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
 import Button from '../../shared/ui/Button'
 import Flex from '../../shared/ui/Flex'
-import { ArticleFormType } from './model/types'
+import { ArticleFormProps, ArticleFormType } from './model/types'
 import { nanoid } from '@reduxjs/toolkit'
 import { Input } from '../../shared/ui/Input'
 import { Form } from '../../shared/ui/Form'
 import { TextArea } from '../../shared/ui/TextArea'
-
-interface ArticleFormProps {
-   onSubmit: (data: ArticleFormType) => void
-   defaultValues: ArticleFormType
-}
 
 const MAX_TAGS = 5
 const MAX_TAG_LENGTH = 14

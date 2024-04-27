@@ -12,3 +12,8 @@ export interface EditPostProps {
    body?: string
    tags?: string[]
 }
+
+export interface ArticleFormProps {
+   onSubmit: (data: ArticleFormType) => void
+   defaultValues: ArticleFormType
+}

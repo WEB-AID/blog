@@ -5,7 +5,7 @@ import getAndDeletePostSlice from '../../pages/PostPage/model/slice'
 import signUpSlice from '../../pages/SignUpPage/model/slice'
 import signInSlice from '../../pages/SignInPage/model/slice'
 import editProfileSlice from '../../pages/EditAccountPage/model/slice'
-import createAndEditPostSlice from '../../entities/CreateAndEditForm/model/slice'
+import createAndEditPostSlice from '../../entities/PostForm/model/slice'
 import likesSlice from '../../widgets/LikesButton/model/slice'
 import {
    createStateSyncMiddleware,

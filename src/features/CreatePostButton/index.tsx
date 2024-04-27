@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom"
-import Button from "../../shared/ui/Button"
+import { useNavigate } from 'react-router-dom'
+import Button from '../../shared/ui/Button'
 
 export const CreatePostButton = () => {
-    const navigate = useNavigate()
+   const navigate = useNavigate()
 
-    return (
-        <Button
-            onClick={() => navigate('/new-article')}
-            $stretched
-            $color="lightgreen"
-        >
-            Create Article
-        </Button>
-    )
+   return (
+      <Button
+         onClick={() => navigate('/new-article')}
+         $stretched
+         $color="lightgreen"
+      >
+         Create Article
+      </Button>
+   )
 }
